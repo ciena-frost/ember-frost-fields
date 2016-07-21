@@ -35,15 +35,25 @@ For more information on using ember-cli, visit [http://ember-cli.com/](http://em
 [npm-url]: https://www.npmjs.com/package/ember-frost-fields
 
 ## Overview
++ Based on the [frost-text](http://ciena-frost.github.io/ember-frost-core/#/field) component
++ from [ember-frost-core](https://github.com/ciena-frost/ember-frost-core), the URL input
++ field consists of an input field and a button.
+
 Based on the textarea field, the URL input field consists of an input field and a button.
- The component is used to verify that the provided URL is both valid and accessible.
 
- After clicking the 'Test' button, the entered URL is loosely verified to be correctly formatted.
- An AJAX GET request is then sent (with JSONP to overcome cross-domain problems) to the destination URL.
- The response is checked with any status code between 100 and 500, except 404, deemed a success.
++ Based on the [frost-text](http://ciena-frost.github.io/ember-frost-core/#/field) component
++ from [ember-frost-core](https://github.com/ciena-frost/ember-frost-core), the URL input
++ field consists of an input field and a button.
 
- Should MIME Checking be enabled and the Type set to 'Text',
- an error will be thrown when using the Chrome browser
+
++ The component is used to verify that the provided URL is both valid and accessible.
+
++ After clicking the 'Test' button, the entered URL is loosely verified to be correctly formatted.
++ An AJAX GET request is then sent (with JSONP to overcome cross-domain problems) to the destination URL.
++ The response is checked with any status code between 100 and 500, except 404, deemed a success.
+
++ Should MIME Checking be enabled and the Type set to 'Text',
++ an error will be thrown when using the Chrome browser
 
 ## Examples
 

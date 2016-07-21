@@ -13,6 +13,7 @@
 import Ember from 'ember'
 const {Component} = Ember
 import layout from '../templates/components/frost-url-input'
+import {PropTypes} from 'ember-prop-types'
 
 // Override Lint checking problem for undefined $
 /* global $ */
@@ -28,12 +29,25 @@ export default Component.extend({
 
   classNames: ['frost-url-input'],
 
-  error: false,
-  isLoading: false,
-  success: false,
-  undetermined: false,
-  urlFormatError: false,
-  placeholder: 'Enter URL',
+  propTypes: {
+    error: PropTypes.bool,
+    isLoading: PropTypes.bool,
+    success: PropTypes.bool,
+    undetermined: PropTypes.bool,
+    placeholder: PropTypes.string,
+    urlFormatError: PropTypes.bool
+  },
+
+  getDefaultProps () {
+    return {
+      error: false,
+      isLoading: false,
+      success: false,
+      undetermined: false,
+      urlFormatError: false,
+      placeholder: 'Enter URL'
+    }
+  },
 
   layout,
 
@@ -53,6 +67,36 @@ export default Component.extend({
   // Actions
   // ==========================================================================
 
+  _testError (e) {
+    const props = {
+      isLoading: false
+    }
+
+    let httpStatusCode = e.status
+    // JSONP not supported by server
+
+    if (httpStatusCode === 404) {
+      props.error = true
+    } else if ((httpStatusCode >= 100) && (httpStatusCode < 500)) {
+      props.success = true
+    } else {
+      props.undetermined = true
+    }
+
+    Ember.run(() => {
+      this.setProperties(props)
+    })
+  },
+
+  _testStatus () {
+    Ember.run(() => {
+      this.setProperties({
+        isLoading: false,
+        success: true
+      })
+    })
+  },
+
   actions: {
 
     test: function (host) {
@@ -62,7 +106,7 @@ export default Component.extend({
         return
       }
 
-      this.send('clear')
+      // this.send('clear')
       this.set('isLoading', true)
 
       // Not using Ember AJAX as it throws unrecoverable error when JSONP is not supported by the server
@@ -72,35 +116,20 @@ export default Component.extend({
         dataType: 'jsonp text',
         jsonp: false,
         timeout: 10000,
-        status: (data) => {
-          this.set('isLoading', false)
-          this.set('success', true)
-        },
-        error: (e) => {
-          this.set('isLoading', false)
-
-          let httpStatusCode = e.status
-          // JSONP not supported by server
-
-          if (httpStatusCode === 404) {
-            this.set('error', true)
-          } else if ((httpStatusCode >= 100) && (httpStatusCode < 500)) {
-            this.set('success', true)
-          } else {
-            this.set('undetermined', true)
-          }
-        }
+        status: this._testStatus.bind(this),
+        error: this._testError.bind(this)
       })
     },
 
     clear: function () {
-      this.setProperties({'isLoading': false, 'success': false, 'error': false, 'undetermined': false,
-        'urlFormatError': false})
-
-      this.set('value', '')
-      this.$('text').focus()
-      this.$('text').val('')
-      this.$('textarea').trigger('input')
+      this.setProperties({
+        error: false,
+        isLoading: false,
+        success: false,
+        undetermined: false,
+        urlFormatError: false,
+        value: ''
+      })
     }
   }
 })
