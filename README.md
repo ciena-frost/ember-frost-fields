@@ -33,3 +33,21 @@ For more information on using ember-cli, visit [http://ember-cli.com/](http://em
 [cov-url]: https://coveralls.io/github/ciena-frost/ember-frost-fields
 [npm-img]: https://img.shields.io/npm/v/ember-frost-fields.svg "NPM Version"
 [npm-url]: https://www.npmjs.com/package/ember-frost-fields
+
+## Overview
+Based on the textarea field, the URL input field consists of an input field and a button.
+ The component is used to verify that the provided URL is both valid and accessible.
+
+ After clicking the 'Test' button, the entered URL is loosely verified to be correctly formatted.
+ An AJAX GET request is then sent (with JSONP to overcome cross-domain problems) to the destination URL.
+ The response is checked with any status code between 100 and 500, except 404, deemed a success.
+
+ Should MIME Checking be enabled and the Type set to 'Text',
+ an error will be thrown when using the Chrome browser
+
+## Examples
+
+### Default
+```handlebars
+{{frost-url-input}}
+```
