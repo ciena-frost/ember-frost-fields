@@ -10,6 +10,7 @@
  an error will be thrown when using the Chrome browser
  */
 
+import _ from 'lodash'
 import Ember from 'ember'
 const {Component} = Ember
 import layout from '../templates/components/frost-url-input'
@@ -62,6 +63,31 @@ export default Component.extend({
   // ==========================================================================
   // Events
   // ==========================================================================
+
+  oninput: Ember.on('input', function (e) {
+    const onInput = this.attrs['onInput']
+
+    if (_.isFunction(onInput)) {
+      onInput({
+        id: this.get('id'),
+        value: e.target.value
+      })
+    }
+  }),
+
+  _onFocus: Ember.on('focusIn', function () {
+    // If an onFocus handler is defined, call it
+    if (this.attrs.onFocus) {
+      this.attrs.onFocus()
+    }
+  }),
+
+  _onBlur: Ember.on('focusOut', function () {
+    // If an onBlur handler is defined, call it
+    if (this.attrs.onBlur) {
+      this.attrs.onBlur()
+    }
+  }),
 
   // ==========================================================================
   // Actions
