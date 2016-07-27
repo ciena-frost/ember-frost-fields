@@ -106,7 +106,7 @@ export default Component.extend({
         return
       }
 
-      // this.send('clear')
+      this.send('clear')
       this.set('isLoading', true)
 
       // Not using Ember AJAX as it throws unrecoverable error when JSONP is not supported by the server
