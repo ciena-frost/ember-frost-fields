@@ -100,13 +100,14 @@ export default Component.extend({
   actions: {
 
     test: function (host) {
+      this.send('clear', false)
+
       // Verify URL - potentially change to a solid regex in the future
       if ((!host) || (!host.toLowerCase().startsWith('http://')) && (!host.toLowerCase().startsWith('https://'))) {
         this.set('urlFormatError', true)
         return
       }
 
-      this.send('clear', false)
       this.set('isLoading', true)
 
       // Not using Ember AJAX as it throws unrecoverable error when JSONP is not supported by the server
