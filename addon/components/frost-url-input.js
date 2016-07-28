@@ -106,7 +106,7 @@ export default Component.extend({
         return
       }
 
-      this.send('clear')
+      this.send('clear', false)
       this.set('isLoading', true)
 
       // Not using Ember AJAX as it throws unrecoverable error when JSONP is not supported by the server
@@ -121,14 +121,17 @@ export default Component.extend({
       })
     },
 
-    clear: function () {
+    clear: function (clearField) {
+      if (clearField) {
+        this.set('value', '')
+      }
+
       this.setProperties({
         error: false,
         isLoading: false,
         success: false,
         undetermined: false,
         urlFormatError: false,
-        value: ''
       })
     }
   }
