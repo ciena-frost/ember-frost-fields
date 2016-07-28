@@ -131,7 +131,7 @@ export default Component.extend({
         isLoading: false,
         success: false,
         undetermined: false,
-        urlFormatError: false,
+        urlFormatError: false
       })
     }
   }
