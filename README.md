@@ -52,7 +52,7 @@ Based on the textarea field, the URL input field consists of an input field and 
 + An AJAX GET request is then sent (with JSONP to overcome cross-domain problems) to the destination URL.
 + The response is checked with any status code between 100 and 500, except 404, deemed a success.
 
-+ Should MIME Checking be enabled and the Type set to 'Text',
++ Should MIME Checking be enabled and the Type set to 'Text', 
 + an error will be thrown when using the Chrome browser
 
 ## Examples
