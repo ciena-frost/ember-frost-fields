@@ -64,31 +64,6 @@ export default Component.extend({
   // Events
   // ==========================================================================
 
-  oninput: Ember.on('input', function (e) {
-    const onInput = this.attrs['onInput']
-
-    if (_.isFunction(onInput)) {
-      onInput({
-        id: this.get('id'),
-        value: e.target.value
-      })
-    }
-  }),
-
-  _onFocus: Ember.on('focusIn', function () {
-    // If an onFocus handler is defined, call it
-    if (this.attrs.onFocus) {
-      this.attrs.onFocus()
-    }
-  }),
-
-  _onBlur: Ember.on('focusOut', function () {
-    // If an onBlur handler is defined, call it
-    if (this.attrs.onBlur) {
-      this.attrs.onBlur()
-    }
-  }),
-
   // ==========================================================================
   // Actions
   // ==========================================================================
@@ -124,6 +99,18 @@ export default Component.extend({
   },
 
   actions: {
+    input (e) {
+      const onInput = this.attrs['onInput']
+
+      this.actions.clear.call(this, false)
+
+      if (_.isFunction(onInput)) {
+        onInput({
+          id: this.get('id'),
+          value: e.target.value
+        })
+      }
+    },
 
     test: function (host) {
       this.send('clear', false)
