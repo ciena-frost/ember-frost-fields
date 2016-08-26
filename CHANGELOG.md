@@ -1,3 +1,7 @@
+# 0.2.1
+
+* **Removed** application template from `app` directory which was being used by apps not defining their own application template.
+
 # 0.2.0
 
 * **Upgraded** from `lodash` 3.x to 4.x.
