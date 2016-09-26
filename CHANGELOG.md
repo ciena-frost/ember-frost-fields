@@ -1,3 +1,7 @@
+# 1.0.0
+
+* Bumping to 1.0 for inclusion in the long term Frost ecosystem
+
 # 0.2.1
 
 * **Removed** application template from `app` directory which was being used by apps not defining their own application template.
