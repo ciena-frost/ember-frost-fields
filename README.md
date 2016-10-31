@@ -35,35 +35,35 @@
 [![EmberObserver][ember-observer-badge]][ember-observer-badge-url]
 
 ## Overview
-+ Based on the [frost-text](http://ciena-frost.github.io/ember-frost-core/#/field) component
-+ from [ember-frost-core](https://github.com/ciena-frost/ember-frost-core), the URL input
-+ field consists of an input field and a button.
+Ember-frost-fields provides different kinds of custom input fields and input areas.
 
-Based on the textarea field, the URL input field consists of an input field and a button.
+### frost-url-input
+Based on the [frost-text](http://ciena-frost.github.io/ember-frost-core/#/field) component
+from [ember-frost-core](https://github.com/ciena-frost/ember-frost-core), the URL input
+field consists of an input field and a button.
+The component is used to verify that the provided URL is both valid and accessible.
 
-+ Based on the [frost-text](http://ciena-frost.github.io/ember-frost-core/#/field) component
-+ from [ember-frost-core](https://github.com/ciena-frost/ember-frost-core), the URL input
-+ field consists of an input field and a button.
-
-+ The component is used to verify that the provided URL is both valid and accessible.
-
-+ After clicking the 'Test' button, the entered URL is loosely verified to be correctly formatted.
+After clicking the 'Test' button,
++ the entered URL is loosely verified to be correctly formatted.
 + An AJAX GET request is then sent (with JSONP to overcome cross-domain problems) to the destination URL.
 + The response is checked with any status code between 100 and 500, except 404, deemed a success.
 
-+ Should MIME Checking be enabled and the Type set to 'Text',
-+ an error will be thrown when using the Chrome browser
+Should MIME Checking be enabled and the Type set to 'Text', an error will be thrown when using the Chrome browser
 
 ## Testing with ember-hook
+
+### frost-url-input
 The file picker component is accessible using ember-hook with the top level hook name or you can access the internal components as well -
 * Default top level hook - `$hook('url-input')`
-* Browse button hook - `$hook('<hook-name>-button')`
+* Test button hook - `$hook('<hook-name>-button')`
 * Input field hook - `$hook('<hook-name>-input')`
 
 ## Examples
-API and example usage can be found in the sample application in tests/dummy, which is also running at http://ciena-frost.github.io/ember-frost-file-picker
 
-### Default
+API and example usage can be found in the sample application in tests/dummy, which is also running at http://ciena-frost.github.io/ember-frost-fields
+
+### frost-url-input
+
 ```handlebars
 {{frost-url-input}}
 ```
