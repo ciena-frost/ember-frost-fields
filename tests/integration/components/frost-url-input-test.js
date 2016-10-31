@@ -5,7 +5,14 @@ import {
   it
 } from 'ember-mocha'
 import hbs from 'htmlbars-inline-precompile'
-import {beforeEach, describe} from 'mocha'
+import {
+  beforeEach,
+  describe
+} from 'mocha'
+import {
+  $hook,
+  initialize as initializeHook
+} from 'ember-hook'
 
 describeComponent(
   'frost-url-input',
@@ -16,11 +23,14 @@ describeComponent(
 
   function () {
     beforeEach(function () {
-      this.render(hbs`{{frost-url-input}}`)
+      initializeHook()
+      this.render(hbs`{{
+        frost-url-input
+      }}`)
     })
 
     it('renders', function () {
-      expect(this.$()).to.have.length(1)
+      expect($hook('url-field')).to.have.length(1)
     })
 
     describe('user inputs value', function () {
@@ -30,8 +40,8 @@ describeComponent(
           .trigger('input')
       })
 
-      it('does not render message', function () {
-        expect(this.$('.urlText').length).to.equal(0)
+      it('does not render error', function () {
+        expect($hook('url-field-icon').length).to.equal(0)
       })
 
       /* FIXME: $.ajax() is throwing an error we can't seem to catch and that is crashing test server (AK - 2016-07-21)
@@ -42,7 +52,7 @@ describeComponent(
 
         it('url is valid', function (done) {
           Ember.run.later(() => {
-            console.log('#######', $('.frost-url-input div.urlIcon div.urlText'))
+            console.log('#######', $('.frost-url-input div.url-icon div.urlText'))
             done()
           }, 250)
         })

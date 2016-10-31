@@ -1,6 +1,8 @@
 {{frost-text
   autofocus=autofocus
   disabled=disabled
+  hook=hook
+  isHookEmbedded=true
   insert-newline=onEnter
   onFocusIn=onFocus
   onFocusOut=onBlur
@@ -14,44 +16,45 @@
 
 {{frost-button
   id='test'
+  hook=(concat hook '-button')
   onClick=(action 'test' value)
   priority='primary'
   size='small'
   text='Test'
 }}
 
-<div class="urlIcon">
-
+<div class="url-icon">
   {{#if urlFormatError}}
     {{frost-icon
-    icon='warning'
+      hook=(concat hook '-icon')
+      icon='warning'
     }}
-      <div class="urlText">URL Format Error</div>
   {{/if}}
 
   {{#if isLoading}}
     {{frost-icon
-    icon='loading/ring'
+      hook=(concat hook '-icon')
+      icon='loading/ring'
     }}
   {{/if}}
 
   {{#if error}}
     {{frost-icon
-    icon='notifications/error'
+      hook=(concat hook '-icon')
+      icon='notifications/error'
     }}
-      <div class="urlText">Error</div>
   {{/if}}
   {{#if undetermined}}
     {{frost-icon
-    icon='notifications/warning'
+      hook=(concat hook '-icon')
+      icon='notifications/warning'
     }}
-      <div class="urlText">Undetermined</div>
   {{/if}}
   {{#if success}}
     {{frost-icon
-    icon='notifications/info'
+      hook=(concat hook '-icon')
+      icon='notifications/info'
     }}
-      <div class="urlText">Success</div>
   {{/if}}
-
+  <div data-test={{hook (concat hook '-error-text')}}>{{errorMessage}}</div>
 </div>

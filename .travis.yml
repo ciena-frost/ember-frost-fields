@@ -1,5 +1,6 @@
 language: node_js
-sudo: false
+sudo: required
+dist: trusty
 node_js:
 - '5.0'
 - 'stable'
@@ -16,8 +17,6 @@ env:
   matrix:
   - EMBER_TRY_SCENARIO=default
   - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
   global:
     - CXX=g++-4.8
     - secure: D69iCud7AKyXaPPF+kdDlq1M75RPo/OAJpnv4YNKu7Mi2PtytswCkLLsdNLnHXdtBirK5IloS1+mk3NxagiTPEDlzznYuQIUrGUnChKLyxA8LiQE8mT9rsP+6nX1mFbrNns++cS8Lssu2PvsqLZnDMyI6lc3qM05jK5htvjla74pBTaoZMrd/TL69mqCZZjbZmEYkl2PPfHRTTCLhaeNOsDhMmiWfnEQ7c109cmRPSBvyThPM2Mc3Y/7R36N0yihxCn5EHaWz84NVO+9BpzdjvVQ2yDUrFIeHznrKSVzMUgTc7P/5wpECDjT8P07p1dwbfcG0BUsBp9c7BVThOv2lTQPfMPHd9+lxZ11MvvZbkoMyT6LJNep1JkWMi1TlSa8QpW/H6v9sbrJMFUGQkKIuGkthLJcrjPKa2nPvVvQwn3kOnKaMVpDJhJwiG1hQDJUO9sIi2nW42dYpdRGHSZehMWi5ztrGvc1OPbC/6eRGdwbxsoSIwPl+00aXx5HriUdOhbs5Wdch9i3b0c4+nCdaKZeh9puTIxvLaTJVLI4X3DX0rfT9VHohfpRraWCTchXdcEIiXC9xLcdR6D6QbL5ZbaXXQaW3sttAA0hZItC4ayx1NMeuZFguBd/NujDP/3pIZvhe2GCcdEYMdogXCRQRiEpqLmqaIRe0xBftx1Qgu8=
@@ -34,12 +33,17 @@ install:
 - npm install
 - bower install
 before_script:
+- export CHROME_BIN=/usr/bin/google-chrome
 - "export DISPLAY=:99.0"
 - "sh -e /etc/init.d/xvfb start"
 - sleep 3 # give xvfb some time to start
+- sudo apt-get update
+- sudo apt-get install -y libappindicator1 fonts-liberation
+- wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+- sudo dpkg -i google-chrome*.deb
 script:
 - npm run lint
-- ember try:one $EMBER_TRY_SCENARIO --- ember test
+- ember try:one $EMBER_TRY_SCENARIO --- ember tva --push-var='false' --msg-on=$EMBER_TRY_SCENARIO
 after_success:
 - .travis/publish-coverage.sh
 before_deploy:
