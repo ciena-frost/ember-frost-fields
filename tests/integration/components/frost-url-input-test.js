@@ -13,10 +13,7 @@ import {
   $hook,
   initialize as initializeHook
 } from 'ember-hook'
-import wait from 'ember-test-helpers/wait';
-import Pretender from 'pretender';
-
-let server
+import wait from 'ember-test-helpers/wait'
 
 describeComponent(
   'frost-url-input',
@@ -28,15 +25,10 @@ describeComponent(
   function () {
     beforeEach(function () {
       initializeHook()
-      server = new Pretender();
 
       this.render(hbs`{{
         frost-url-input
       }}`)
-    })
-
-    afterEach(function () {
-      server.shutdown();
     })
 
     it('renders', function () {
