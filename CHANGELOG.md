@@ -1,3 +1,8 @@
+# 2.0.0
+**upgraded** to Ember 2.8. 
+**Added** sass and md linting. 
+**Updated** Demo, README and tests
+
 # 1.0.0
 
 * Bumping to 1.0 for inclusion in the long term Frost ecosystem
