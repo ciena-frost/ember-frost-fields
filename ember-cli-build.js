@@ -5,7 +5,8 @@ module.exports = function (defaults) {
   var app = new EmberAddon(defaults, {
     'ember-cli-mocha': {
       useLintTree: false
-    }
+    },
+    snippetSearchPaths: ['tests/dummy']
   })
 
   return app.toTree()

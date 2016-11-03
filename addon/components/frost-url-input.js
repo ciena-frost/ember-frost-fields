@@ -12,26 +12,24 @@
 
 import _ from 'lodash'
 import Ember from 'ember'
-const {Component} = Ember
+const {Component, computed} = Ember
 import layout from '../templates/components/frost-url-input'
-import {PropTypes} from 'ember-prop-types'
+import PropTypeMixin, {PropTypes} from 'ember-prop-types'
 
 // Override Lint checking problem for undefined $
 /* global $ */
 
-export default Component.extend({
-  // ==========================================================================
-  // Dependencies
-  // ==========================================================================
-
-  // ==========================================================================
-  // Properties
-  // ==========================================================================
+export default Component.extend(PropTypeMixin, {
+  // == Properties ======================================================
 
   classNames: ['frost-url-input'],
+  layout,
+
+  // == State Properties ======================================================
 
   propTypes: {
     error: PropTypes.bool,
+    errorMessage: PropTypes.string,
     isLoading: PropTypes.bool,
     success: PropTypes.bool,
     undetermined: PropTypes.bool,
@@ -42,6 +40,7 @@ export default Component.extend({
   getDefaultProps () {
     return {
       error: false,
+      hook: 'url-field',
       isLoading: false,
       success: false,
       undetermined: false,
@@ -50,23 +49,22 @@ export default Component.extend({
     }
   },
 
-  layout,
+  errorMessage: computed('urlFormatError', 'error', 'undetermined', 'success'
+    , function () {
+      if (this.get('urlFormatError')) {
+        return 'URL Format Error'
+      }
 
-  // ==========================================================================
-  // Computed Properties
-  // ==========================================================================
+      if (this.get('error') || this.get('undetermined')) {
+        return 'error'
+      }
 
-  // ==========================================================================
-  // Functions
-  // ==========================================================================
+      if (this.get('success')) {
+        return 'Success'
+      }
+    }),
 
-  // ==========================================================================
-  // Events
-  // ==========================================================================
-
-  // ==========================================================================
-  // Actions
-  // ==========================================================================
+  // == Functions =============================================================
 
   _testError (e) {
     const props = {
@@ -98,6 +96,8 @@ export default Component.extend({
     })
   },
 
+  // == Actions ===============================================================
+
   actions: {
     input (e) {
       const onInput = this.attrs['onInput']
@@ -112,7 +112,7 @@ export default Component.extend({
       }
     },
 
-    test: function (host) {
+    test (host) {
       this.send('clear', false)
 
       // Verify URL - potentially change to a solid regex in the future
@@ -135,7 +135,7 @@ export default Component.extend({
       })
     },
 
-    clear: function (clearField) {
+    clear (clearField) {
       if (clearField) {
         this.set('value', '')
       }

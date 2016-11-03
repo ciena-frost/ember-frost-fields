@@ -3,13 +3,14 @@
     display: inline-block;
   }
 
-  .urlIcon {
+  .url-icon {
     display: block;
     vertical-align: middle;
+
     > .frost-icon {
-      vertical-align: middle;
       width: 40px;
       height: 40px;
+      vertical-align: middle;
     }
   }
 }
