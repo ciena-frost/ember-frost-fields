@@ -1,3 +1,7 @@
+# 3.0.0
+**updated** publish script perms, coverage attrs, node version.
+
+
 # 2.0.0
 **upgraded** to Ember 2.8. 
 **Added** sass and md linting. 
