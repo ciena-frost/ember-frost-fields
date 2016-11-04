@@ -1,3 +1,8 @@
+# 3.0.1
+**fix** gh-pages demo
+
+
+
 # 3.0.0
 **updated** publish script perms, coverage attrs, node version.
 
