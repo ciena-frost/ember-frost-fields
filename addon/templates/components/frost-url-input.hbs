@@ -27,6 +27,7 @@
   {{#if urlFormatError}}
     {{frost-icon
       hook=(concat hook '-icon')
+      pack='frost-nav'
       icon='warning'
     }}
   {{/if}}
@@ -34,26 +35,30 @@
   {{#if isLoading}}
     {{frost-icon
       hook=(concat hook '-icon')
-      icon='loading/ring'
+      pack='frost-nav'
+      icon='ring'
     }}
   {{/if}}
 
   {{#if error}}
     {{frost-icon
       hook=(concat hook '-icon')
-      icon='notifications/error'
+      pack='frost-nav'
+      icon='error'
     }}
   {{/if}}
   {{#if undetermined}}
     {{frost-icon
       hook=(concat hook '-icon')
-      icon='notifications/warning'
+      pack='frost-nav'
+      icon='warning'
     }}
   {{/if}}
   {{#if success}}
     {{frost-icon
       hook=(concat hook '-icon')
-      icon='notifications/info'
+      pack='frost-nav'
+      icon='info'
     }}
   {{/if}}
   <div data-test={{hook (concat hook '-error-text')}}>{{errorMessage}}</div>
