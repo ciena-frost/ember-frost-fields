@@ -1,3 +1,10 @@
+# 4.0.0
+- Updated comber-frost-core
+- SVG's folder was added to main directory
+- 'frost-nav' icon pack was added to package.json
+- updated failing dependencies
+- removed unnecessary dependencies.
+
 # 3.0.1
 **fix** gh-pages demo
 
