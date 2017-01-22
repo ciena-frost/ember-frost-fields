@@ -10,16 +10,18 @@
  an error will be thrown when using the Chrome browser
  */
 
-import _ from 'lodash'
 import Ember from 'ember'
-const {Component, computed} = Ember
+const {computed, run} = Ember
+import {Component} from 'ember-frost-core'
+import {PropTypes} from 'ember-prop-types'
+import _ from 'lodash'
+
 import layout from '../templates/components/frost-url-input'
-import PropTypeMixin, {PropTypes} from 'ember-prop-types'
 
 // Override Lint checking problem for undefined $
 /* global $ */
 
-export default Component.extend(PropTypeMixin, {
+export default Component.extend({
   // == Properties ======================================================
 
   classNames: ['frost-url-input'],
@@ -62,7 +64,7 @@ export default Component.extend(PropTypeMixin, {
       if (this.get('success')) {
         return 'Success'
       }
-    }),
+    }).readOnly(),
 
   // == Functions =============================================================
 
@@ -82,13 +84,13 @@ export default Component.extend(PropTypeMixin, {
       props.undetermined = true
     }
 
-    Ember.run(() => {
+    run(() => {
       this.setProperties(props)
     })
   },
 
   _testStatus () {
-    Ember.run(() => {
+    run(() => {
       this.setProperties({
         isLoading: false,
         success: true

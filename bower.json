@@ -1,10 +1,8 @@
 {
   "name": "ember-frost-fields",
   "dependencies": {
-    "chai": "~2.3.0",
-    "ember": "~2.8.0",
+    "ember": "^2.10.2",
     "ember-cli-shims": "0.1.1",
-    "ember-mocha-adapter": "~0.3.1",
-    "mocha": "~2.2.4"
+    "ember-mocha-adapter": "~0.3.1"
   }
 }
