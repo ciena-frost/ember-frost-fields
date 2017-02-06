@@ -11,10 +11,9 @@
  */
 
 import Ember from 'ember'
-const {computed, run} = Ember
+const {computed, run, typeOf} = Ember
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
-import _ from 'lodash'
 
 import layout from '../templates/components/frost-url-input'
 
@@ -106,7 +105,7 @@ export default Component.extend({
 
       this.actions.clear.call(this, false)
 
-      if (_.isFunction(onInput)) {
+      if (typeOf(onInput) === 'function') {
         onInput({
           id: this.get('id'),
           value: e.target.value
