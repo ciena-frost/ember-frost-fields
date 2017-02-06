@@ -1,3 +1,9 @@
+# 4.2.0
+
+* **Removed** lodash from dependencies.
+* **Updated** CI to test in Chrome as well as Firefox.
+
+
 # 4.1.1
 
 * **Upgraded** to test against Ember 2.11.
