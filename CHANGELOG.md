@@ -1,3 +1,7 @@
+# 4.2.1
+* **Updated** integration tests to use the `ember-test-utils` helpers
+
+
 # 4.2.0
 
 * **Removed** lodash from dependencies.
