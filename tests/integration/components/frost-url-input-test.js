@@ -1,13 +1,13 @@
 import {expect} from 'chai'
 import {$hook} from 'ember-hook'
-import {setupComponentTest} from 'ember-mocha'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
 
-describe('Integration: FrostUrlInputComponent', function () {
-  setupComponentTest('frost-url-input', {
-    integration: true
-  })
+import {integration} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
+
+const test = integration('frost-url-input')
+describe(test.label, function () {
+  test.setup()
 
   beforeEach(function () {
     this.render(hbs`{{frost-url-input hook='url-field'}}`)
