@@ -10,8 +10,10 @@ branches:
 addons:
   apt:
     sources:
+      - google-chrome
       - ubuntu-toolchain-r-test
     packages:
+      - google-chrome-stable
       - g++-4.8
   firefox: 'latest-esr'
 env:
@@ -60,7 +62,7 @@ deploy:
     branch: master
     condition: "$EMBER_TRY_SCENARIO = 'default'"
     node: 'stable'
-    tags: false
+    tags: true
 after_deploy:
 - .travis/publish-gh-pages.sh
 notifications:
