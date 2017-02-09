@@ -53,7 +53,8 @@ Should MIME Checking be enabled and the Type set to 'Text', an error will be thr
 ## Testing with ember-hook
 
 ### frost-url-input
-The file picker component is accessible using ember-hook with the top level hook name or you can access the internal components as well -
+The file picker component is accessible using ember-hook with the top level hook name or you can access the internal
+components as well -
 * Default top level hook - `$hook('url-input')`
 * Test button hook - `$hook('<hook-name>-button')`
 * Input field hook - `$hook('<hook-name>-input')`
