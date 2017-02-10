@@ -1,3 +1,7 @@
+# 4.2.2
+
+* **Fixed** build to publish.
+
 # 4.2.1
 * **Updated** integration tests to use the `ember-test-utils` helpers
 
