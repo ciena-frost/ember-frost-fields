@@ -1,3 +1,6 @@
+# 4.2.3
+* **Updated** the travis scripts used for bumping and publishing
+
 # 4.2.2
 
 * **Fixed** build to publish.
