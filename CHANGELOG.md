@@ -1,3 +1,6 @@
+# 4.2.4
+* **Added** .gitkeep file to the coverage directory
+
 # 4.2.3
 * **Updated** the travis scripts used for bumping and publishing
 
