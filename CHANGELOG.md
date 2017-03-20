@@ -1,3 +1,8 @@
+# 4.2.5 (2017-03-20)
+* **Used** `ember-frost-core` info, warning and error icons instead of the local icons
+* **Modified** `ember-cli` dependency to `~` instead of `^` to avoid picking up the latest minor version of ember
+
+
 # 4.2.4
 * **Added** .gitkeep file to the coverage directory
 
