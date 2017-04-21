@@ -4,7 +4,7 @@ module.exports = {
   afterInstall: function (options) {
     const addonsToAdd = [
       {name: 'ember-frost-core', target: '^1.14.3'},
-      {name: 'ember-hook', target: '~1.3.1'}
+      {name: 'ember-hook', target: '^1.4.1'}
     ]
 
     // Get the packages installed in the consumer app/addon. Packages that are already installed in the consumer within
