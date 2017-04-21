@@ -1,3 +1,7 @@
+# 4.2.6 (2017-04-21)
+* **Added**  blueprint check
+
+
 # 4.2.5 (2017-03-20)
 * **Used** `ember-frost-core` info, warning and error icons instead of the local icons
 * **Modified** `ember-cli` dependency to `~` instead of `^` to avoid picking up the latest minor version of ember
