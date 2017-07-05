@@ -1,3 +1,6 @@
+# 4.2.8 (2017-07-05)
+* Upgrade `ember-cli` to `2.12.3`
+
 # 4.2.7 (2017-05-10)
 * **Updated** the secure tokens in `.travis.yml`
 
