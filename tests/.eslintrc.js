@@ -1,7 +1,7 @@
 /* eslint-env node */
 
-'use strict'
-
 module.exports = {
-  name: 'ember-frost-fields'
+  env: {
+    embertest: true
+  }
 }
