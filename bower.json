@@ -1,6 +1,0 @@
-{
-  "name": "ember-frost-fields",
-  "dependencies": {
-    "ember-mocha-adapter": "~0.3.1"
-  }
-}
