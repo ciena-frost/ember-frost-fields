@@ -117,7 +117,7 @@ export default Component.extend({
       this.send('clear', false)
 
       // Verify URL - potentially change to a solid regex in the future
-      if ((!host) || (!host.toLowerCase().startsWith('http://')) && (!host.toLowerCase().startsWith('https://'))) {
+      if (!host || (!host.toLowerCase().startsWith('http://') && !host.toLowerCase().startsWith('https://'))) {
         this.set('urlFormatError', true)
         return
       }

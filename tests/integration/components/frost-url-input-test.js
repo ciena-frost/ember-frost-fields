@@ -12,11 +12,11 @@ describe(test.label, function () {
     this.render(hbs`{{frost-url-input hook='url-field'}}`)
   })
 
-  it('renders', function () {
+  it('should render', function () {
     expect($hook('url-field')).to.have.length(1)
   })
 
-  it('does not render error by default', function () {
+  it('should not render error by default', function () {
     expect($hook('url-field-icon').length).to.equal(0)
   })
 
@@ -26,7 +26,7 @@ describe(test.label, function () {
       $hook('url-field-button').click()
     })
 
-    it('shows format error message', function () {
+    it('should show format error message', function () {
       expect($hook('url-field-error-text').text()).to.equal('URL Format Error')
     })
 
