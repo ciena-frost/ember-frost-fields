@@ -1,3 +1,9 @@
+# 4.2.10 (2017-10-26)
+* **Updated** testing dependencies
+* **Removed** ember-cli-visual-acceptance
+* **Removed** no longer used `bower.json` and `.bowerrc`
+
+
 # 4.2.9 (2017-08-11)
 * Upgrade ember-cli 2.12.3 inter-dependencies
 
