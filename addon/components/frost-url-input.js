@@ -10,8 +10,9 @@
  an error will be thrown when using the Chrome browser
  */
 
-import Ember from 'ember'
-const {computed, run, typeOf} = Ember
+import {computed} from '@ember/object'
+import {run} from '@ember/runloop'
+import {typeOf} from '@ember/utils'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
