@@ -19,4 +19,3 @@ bower.json
 dependency-snapshot.json
 ember-cli-build.js
 testem.js
-/visual-acceptance
