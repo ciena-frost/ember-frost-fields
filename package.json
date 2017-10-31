@@ -15,7 +15,7 @@
   },
   "repository": "git@github.com:ciena-frost/ember-frost-fields.git",
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 8.1.2"
   },
   "author": "",
   "contributors": [
