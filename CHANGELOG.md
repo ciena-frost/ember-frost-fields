@@ -1,3 +1,7 @@
+# 6.0.1 (2017-11-08)
+* Use the latest minor of `ember-frost-core`
+
+
 # 6.0.0 (2017-11-03)
 
 ## WARNING: THIS REVERTS EMBER CLI 2.16.2 BACK TO 2.12.3
