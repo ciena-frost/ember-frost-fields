@@ -1,3 +1,6 @@
+# 6.0.2 (2017-12-13)
+* Change semver range of `ember-resolver` to align with other repos
+
 # 6.0.1 (2017-11-08)
 * Use the latest minor of `ember-frost-core`
 
