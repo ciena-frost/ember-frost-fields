@@ -1,3 +1,25 @@
+# 7.0.0 (2018-01-11)
+* **Updated** `ember-frost-test` to `^4.0.0`
+* **Added** `ember-sinon` @ `^0.7.0`
+* **Updated** `ember-test-utils` to `^8.1.0`
+* **Updated** `ember-cli-frost-blueprints` to `^5.0.1`
+* **Added** ignoring of `package-lock` until we are ready to move to node 8
+* **Removed** useLintTree ember-cli-mocha configuration from `ember-cli-build.js`
+* **Added** ignoring of linting `CHANGELOG.md`
+* **Removed** `.remarkrc` file since it is now provided by `ember-test-utils`
+* **Added** `ember-browserify` @ `^1.2.0`
+* **Updated** pin `ember-code-snippet` to `1.7.0`
+* **Updated** `ember-cli-sass` to `7.1.1`
+* **Removed** unused `ember-computed-decorators` package
+* **Updated** `ember-frost-core` to `^5.1.1`
+* **Updated** `ember-hook` to `1.4.2` and moved to a dependency instead of a devDependency
+* **Updated** `ember-prop-types` to `^6.0.0` and moved to a dependency instead of a devDependency
+* **Removed** unused `ember-spread` package
+* **Removed** unused `ember-truth-helpers` package
+* **Removed** unused `ember-concurrency` package
+* **Removed** unused `ember-elsewhere` package
+* **Removed** blueprint files since packages are now provided via dependencies
+
 # 6.0.2 (2017-12-13)
 * Change semver range of `ember-resolver` to align with other repos
 
