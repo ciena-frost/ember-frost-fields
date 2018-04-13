@@ -69,7 +69,4 @@
   "ember-addon": {
     "configPath": "tests/dummy/config"
   },
-  "ember-frost-icon-pack": {
-    "name": "frost-fields"
-  }
 }
